@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Цифровые часы</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="clock">
+<h2>🩵 Текущее время</h2>
+<div id="time"></div>
+<div id="date"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
+
+*body{margin:0;background:linear-gradient(135deg,#bceaff,#eaf9ff);font-family:Arial;display:grid;place-items:center;min-height:100vh}
+.clock{text-align:center;background:white;padding:40px;border-radius:25px;box-shadow:0 8px 30px #a4d6eb}
+#time{font-size:clamp(40px,10vw,65px);color:#2486b5;font-weight:bold}
+#date{font-size:20px;color:#668b9c}
+
+function update(){
+let now=new Date();
+document.getElementById('time').textContent=now.toLocaleTimeString('ru-RU');
+document.getElementById('date').textContent=now.toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+update();
+setInterval(update,1000);
